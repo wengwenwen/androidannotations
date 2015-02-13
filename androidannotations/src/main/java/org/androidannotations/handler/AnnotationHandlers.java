@@ -156,6 +156,9 @@ public class AnnotationHandlers {
         add(new ContextEventHandler(processingEnvironment));
         add(new EIntentHandler(processingEnvironment));
         add(new EIntentExtraHandler(processingEnvironment));
+        add(new EViewInterfaceHandler(processingEnvironment));
+        add(new EViewInterfaceMethodHandler(processingEnvironment));
+        add(new ViewInterfaceMethodHandler(processingEnvironment));
  	}
 
 	public void add(AnnotationHandler<? extends GeneratedClassHolder> annotationHandler) {

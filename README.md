@@ -44,6 +44,21 @@ public MyActivity{
   }
 }
 ```
+###Use EViewInterfaceMethod an ViewInterfaceMethod
+In MyView.java,you can add EViewInterfaceMethod
+
+```
+@EViewInterfaceMethod
+public void showName(String name);
+```
+to mark this is a ViewInterfaceMethod declare.
+in Activity,Add ViewInterfaceMethod to showName method
+
+```
+@ViewInterfaceMethod
+public void showName(String name)
+```
+So, when any of the method is changed, compiler will give a compile error, so you know something is wrong, and you don't need to implement MyView interface
 #EIntent,IntentExtra
 ```
 @EIntent("BroadcastAction-XX")
@@ -88,5 +103,4 @@ public void onEvent1(String action){
 	//do something
 }
 ```
-TestPullRequest
 [AndroidAnnotations](http://androidannotations.org/)
