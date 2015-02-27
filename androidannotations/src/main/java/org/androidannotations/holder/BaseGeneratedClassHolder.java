@@ -56,7 +56,7 @@ public abstract class BaseGeneratedClassHolder implements GeneratedClassHolder {
 			Element enclosingElement = annotatedElement.getEnclosingElement();
 			GeneratedClassHolder enclosingHolder = processHolder.getGeneratedClassHolder(enclosingElement);
 			String generatedBeanSimpleName = annotatedElement.getSimpleName().toString() + GENERATION_SUFFIX;
-			generatedClass = enclosingHolder.getGeneratedClass()._class(PUBLIC | FINAL | STATIC, generatedBeanSimpleName, ClassType.CLASS);
+			generatedClass = enclosingHolder.getGeneratedClass()._class(PUBLIC | STATIC, generatedBeanSimpleName, ClassType.CLASS);
 		} else {
 			String generatedClassQualifiedName = annotatedComponentQualifiedName + GENERATION_SUFFIX;
 			generatedClass = codeModel()._class(PUBLIC, generatedClassQualifiedName, ClassType.CLASS);

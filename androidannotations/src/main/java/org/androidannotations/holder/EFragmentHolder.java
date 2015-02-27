@@ -263,8 +263,11 @@ public class EFragmentHolder extends EComponentWithViewSupportHolder implements 
 
 	private void setOnAttach() {
 		JMethod onAttach =  generatedClass.method(PUBLIC, codeModel().VOID, "onAttach");
+        onAttach.param(classes().ACTIVITY,"activity");
+        onAttach.annotate(Override.class);
 		JBlock onAttachBody = onAttach.body();
 		onAttachAfterSuperBlock = onAttachBody.block();
+        onAttachBody.invoke(_super(),onAttach).arg(onAttach.listParams()[0]);
 	}
 
 	private void setOnResume() {
@@ -285,8 +288,10 @@ public class EFragmentHolder extends EComponentWithViewSupportHolder implements 
 
 	private void setOnDetach() {
 		JMethod onDetach = generatedClass.method(PUBLIC, codeModel().VOID, "onDetach");
+        onDetach.annotate(Override.class);
 		JBlock onDetachBody = onDetach.body();
 		onDetachBeforeSuperBlock = onDetachBody.block();
+        onDetachBody.invoke(_super(),onDetach);
 	}
 
 	private void setOnStop() {

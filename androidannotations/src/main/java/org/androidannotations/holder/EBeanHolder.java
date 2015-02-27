@@ -101,7 +101,7 @@ public class EBeanHolder extends EComponentWithViewSupportHolder {
 					._then();
  			JVar previousNotifier = viewNotifierHelper.replacePreviousNotifierWithNull(creationBlock);
 			viewNotifierHelper.resetPreviousNotifier(creationBlock, previousNotifier);
-            creationBlock._return(creationBlock.invoke(createSyncNewInstanceMethod(instanceField)).arg(factoryMethodContextParam));
+            creationBlock._return(generatedClass.staticInvoke(createSyncNewInstanceMethod(instanceField)).arg(factoryMethodContextParam));
  			factoryMethodBody._return(instanceField);
 		} else {
 
